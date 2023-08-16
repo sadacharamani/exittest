@@ -34,3 +34,11 @@ jobs:
     
     - name: package
       run: mvn package
+
+    - name: execute
+      run: java -cp target/exittest-1.0-SNAPSHOT.jar com.sada.leap.App
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: target/exittest-1.0-SNAPSHOT.jar
