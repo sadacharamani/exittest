@@ -17,7 +17,7 @@ jobs:
     - name: version check
       run: | 
         mvn -v
-        java -v
+        java -version
         ls -lrth
     
     - name: validate
