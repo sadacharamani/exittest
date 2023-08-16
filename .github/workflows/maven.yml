@@ -1,0 +1,36 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: version check
+      run: | 
+        mvn -v
+        java -v
+        ls -lrth
+    
+    - name: validate
+      run: mvn validate
+      
+    - name: compile
+      run: mvn compile
+
+    - name: test
+      run: mvn test
+
+    - name: clean
+      run: mvn clean
+    
+    - name: package
+      run: mvn package
